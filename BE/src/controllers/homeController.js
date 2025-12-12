@@ -4,7 +4,7 @@ import CRUDService from "../services/CRUDService";
 
 let getHomePage = async (req, res) => {
     let data = await db.NguoiDung.findAll();
-    console.log(data);
+    // console.log(data);
     return res.render('homePage.ejs', { data: JSON.stringify(data) });
 }
 
@@ -18,7 +18,7 @@ let getCRUD = async (req, res) => {
 }
 let postCRUD = async (req, res) => {
     let thongBao = await CRUDService.taoNguoiDung(req.body);
-    console.log("Thông báo:", thongBao);
+    // console.log("Thông báo:", thongBao);
     return res.send(thongBao);
 }
 

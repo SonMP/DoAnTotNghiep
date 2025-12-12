@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+// --- BẢNG MÀU THƯƠNG HIỆU (Lấy từ binhdanhospital.vn) ---
+$color-primary-dark: #004e90; // Xanh đậm logo
+$color-primary-light: #00adef; // Xanh sáng (Cyan)
+$color-bg: #f3f7fa; // Màu nền xám xanh nhạt
+$color-text: #333333;
+$color-text-light: #777777;
+$white: #ffffff;
+$shadow: 0 10px 30px rgba(0, 78, 144, 0.15); // Bóng xanh nhẹ
+
+.login-background {
+    height: 100vh;
+    width: 100%;
+    background-color: $color-bg;
+    // Tạo pattern nền mờ hình chữ thập (tượng trưng y tế)
+    background-image: radial-gradient($color-primary-light 1px, transparent 1px);
+    background-size: 30px 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+
+    .login-container {
+        width: 850px;
+        min-height: 500px;
+        display: flex;
+        background: $white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: $shadow;
+
+        // --- CỘT TRÁI (BRANDING) ---
+        .login-brand-col {
+            width: 45%;
+            // Gradient xanh đặc trưng của bệnh viện
+            background: linear-gradient(160deg, $color-primary-dark 0%, darken($color-primary-dark, 10%) 100%);
+            color: $white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+
+            // Hiệu ứng vòng tròn trang trí
+            &::before {
+                content: '';
+                position: absolute;
+                top: -50px;
+                left: -50px;
+                width: 150px;
+                height: 150px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+
+            .brand-content {
+                text-align: center;
+                margin-top: 40px;
+
+                .icon-logo {
+                    font-size: 50px;
+                    margin-bottom: 20px;
+                    color: $color-primary-light; // Điểm nhấn logo màu sáng
+                }
+
+                h2 {
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .sub-text {
+                    font-size: 13px;
+                    opacity: 0.8;
+                    margin-bottom: 20px;
+                }
+
+                .line-deco {
+                    width: 50px;
+                    height: 3px;
+                    background: $color-primary-light;
+                    margin: 0 auto 20px auto;
+                    border-radius: 2px;
+                }
+
+                .desc {
+                    font-size: 14px;
+                    line-height: 1.6;
+                    opacity: 0.9;
+                    font-weight: 300;
+                }
+            }
+
+            .footer-brand {
+                font-size: 12px;
+                text-align: center;
+                opacity: 0.6;
+            }
+        }
+
+        // --- CỘT PHẢI (FORM) ---
+        .login-form-col {
+            width: 55%;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+
+            .form-wrapper {
+                width: 100%;
+
+                .form-title {
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: $color-primary-dark;
+                    margin-bottom: 5px;
+                }
+
+                .form-subtitle {
+                    font-size: 14px;
+                    color: $color-text-light;
+                    margin-bottom: 35px;
+                }
+
+                .input-group-custom {
+                    margin-bottom: 20px;
+
+                    label {
+                        display: block;
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: $color-text;
+                        margin-bottom: 8px;
+                    }
+
+                    .input-wrapper {
+                        position: relative;
+
+                        input {
+                            width: 100%;
+                            height: 45px;
+                            padding: 10px 40px 10px 40px; // Chừa chỗ cho icon trái và phải
+                            border: 1px solid #e0e0e0;
+                            border-radius: 8px;
+                            outline: none;
+                            transition: all 0.3s;
+                            font-size: 15px;
+                            color: $color-primary-dark;
+                            background: #fafafa;
+
+                            &::placeholder {
+                                color: #bbbbbb;
+                            }
+
+                            &:focus {
+                                border-color: $color-primary-light;
+                                background: $white;
+                                box-shadow: 0 0 0 3px rgba($color-primary-light, 0.15);
+                            }
+
+                            &.error-border {
+                                border-color: red;
+                            }
+                        }
+
+                        .input-icon {
+                            position: absolute;
+                            left: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: $color-text-light;
+                        }
+
+                        .show-pass-btn {
+                            position: absolute;
+                            right: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 12px;
+                            cursor: pointer;
+                            color: $color-primary-dark;
+                            font-weight: 600;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .error-text {
+                    color: red;
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                    min-height: 20px;
+                }
+
+                // .actions {
+                //     display: flex;
+                //     justify-content: flex-end;
+                //     margin-bottom: 30px;
+
+                //     .forgot-pass {
+                //         font-size: 13px;
+                //         color: $color-primary-light;
+                //         cursor: pointer;
+
+                //         &:hover {
+                //             color: $color-primary-dark;
+                //             text-decoration: underline;
+                //         }
+                //     }
+                // }
+                // Tìm đến class .actions trong Login.scss
+                .actions {
+                    display: flex;
+                    justify-content: space-between; // Đẩy 2 phần tử ra 2 đầu
+                    align-items: center; // Canh giữa theo chiều dọc
+                    margin-bottom: 30px;
+
+                    .remember-me {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px; // Khoảng cách giữa ô vuông và chữ
+
+                        input[type="checkbox"] {
+                            width: 16px;
+                            height: 16px;
+                            cursor: pointer;
+                            // Thuộc tính CSS hiện đại giúp checkbox ăn theo màu chủ đạo
+                            accent-color: $color-primary-dark;
+                            margin: 0;
+                        }
+
+                        label {
+                            font-size: 14px;
+                            color: $color-text;
+                            cursor: pointer;
+                            user-select: none; // Chống bôi đen chữ khi click liên tục
+                            margin-bottom: 0; // Reset margin mặc định của label nếu có
+
+                            &:hover {
+                                color: $color-primary-dark;
+                            }
+                        }
+                    }
+
+                    .forgot-pass {
+                        font-size: 13px;
+                        color: $color-primary-light;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $color-primary-dark;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .btn-login-system {
+                    width: 100%;
+                    height: 50px;
+                    border: none;
+                    border-radius: 8px;
+                    // Gradient từ xanh đậm sang xanh sáng - Rất hiện đại
+                    background: linear-gradient(to right, $color-primary-dark, $color-primary-light);
+                    color: $white;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba($color-primary-light, 0.4);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+                }
+
+                .register-section {
+                    text-align: center;
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 1px solid #eee; // Đường kẻ mảnh phân cách
+
+                    .text-guide {
+                        font-size: 14px;
+                        color: #777;
+                        margin-right: 5px;
+                    }
+
+                    .link-register {
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #00adef; // Màu xanh sáng (Cyan) của BV Bình Dân
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: #004e90; // Hover chuyển sang xanh đậm
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .internal-note {
+                    margin-top: 15px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #aaa;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Responsive
+@media (max-width: 768px) {
+    .login-background {
+        .login-container {
+            flex-direction: column;
+            width: 90%;
+            min-height: auto;
+
+            .login-brand-col {
+                display: none; // Ẩn phần brand trên mobile cho gọn
+            }
+
+            .login-form-col {
+                width: 100%;
+                padding: 30px;
+            }
+        }
+    }
+}
